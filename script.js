@@ -1,8 +1,8 @@
 // Create new module. Include ngRoute to handle routing.
 var scotchApp = angular.module('scotchApp', ['ngRoute']);
 
-// Configure routes
-scotchApp.config(function ($routeProvider) {
+// Configure routes. Include $locationProvider to remove hashtags from URLs.
+scotchApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
 
     // Route for home page
@@ -22,6 +22,9 @@ scotchApp.config(function ($routeProvider) {
             templateUrl: 'pages/contact.html',
             controller: 'contactController'
         });
+
+    // Use HTML History API
+    $locationProvider.html5Mode(true);
 });
 
 
